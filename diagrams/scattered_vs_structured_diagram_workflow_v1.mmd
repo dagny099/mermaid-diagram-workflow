@@ -1,0 +1,23 @@
+flowchart LR
+    classDef scattered fill:#fdecea,stroke:#c0392b,color:#641e16;
+    classDef structured fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20,stroke-width:1.5px;
+    classDef connector stroke:#444,stroke-dasharray: 3 3;
+
+    subgraph Scattered[Before: Scattered]
+        N[📓 Notebook cell]:::scattered
+        R[📄 README snippet]:::scattered
+        I[💬 Issue comment]:::scattered
+        S[📊 Slides-only version]:::scattered
+    end
+
+    subgraph Structured[After: Structured]
+        D[/📁 diagrams/ folder/]:::structured
+        H[[📚 diagram_index]]:::structured
+    end
+
+    N -.->|migrate| D:::connector
+    R -.->|collect| D:::connector
+    I -.->|centralize| D:::connector
+    S -.->|extract| D:::connector
+
+    D --> H

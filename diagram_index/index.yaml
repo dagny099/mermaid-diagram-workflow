@@ -1,0 +1,30 @@
+diagrams:
+  - id: scattered_vs_structured_v1
+    title: Scattered vs Structured Diagrams
+    project: mermaid_diagram_workflow
+    repo: git@github.com:you/mermaid-diagram-workflow.git
+    path: diagrams/scattered_vs_structured_v1.0.mmd
+    visibility: public
+    status: stable
+    tags: [overview, documentation, mermaid]
+    last_updated: 2025-11-19
+
+  - id: per_project_workflow_v1
+    title: Per-Project Diagram Workflow
+    project: mermaid_diagram_workflow
+    repo: git@github.com:you/mermaid-diagram-workflow.git
+    path: diagrams/per_project_workflow_v1.0.mmd
+    visibility: public
+    status: stable
+    tags: [workflow, mermaid, documentation]
+    last_updated: 2025-11-19
+
+  - id: cross_project_index_v1
+    title: Cross-Project Diagram Index
+    project: mermaid_diagram_workflow
+    repo: git@github.com:you/mermaid-diagram-workflow.git
+    path: diagrams/cross_project_index_v1.0.mmd
+    visibility: public
+    status: draft
+    tags: [index, diagrams, architecture]
+    last_updated: 2025-11-19

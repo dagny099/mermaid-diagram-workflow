@@ -1,0 +1,14 @@
+flowchart LR
+    A["Source system"]:::source
+    B["ETL job"]:::etl
+    C["Warehouse table"]:::warehouse
+    D["Dashboard"]:::dashboard
+
+    A --> B
+    B --> C
+    C --> D
+
+    classDef source fill:#b3e6ff,stroke:#006080,color:#003344,stroke-width:2px;
+    classDef etl fill:#ffe0b3,stroke:#a67c00,color:#665200,stroke-width:2px;
+    classDef warehouse fill:#d5f5e3,stroke:#229954,color:#145a32,stroke-width:2px;
+    classDef dashboard fill:#dcd6fa,stroke:#5b2c6f,color:#4a235a,stroke-width:2px;

@@ -1,0 +1,21 @@
+---
+config:
+  layout: dagre
+---
+flowchart LR
+    Idea["💡 Diagram idea<br>(notes, scratch pad)"] --> Sketch["✏️ Rough Mermaid sketch<br>(messy but captured)"]
+    Sketch --> Move["📁 Move into<br>/diagrams/ folder"]
+    Move --> Meta["🏷️ Add metadata<br>(id, tags, visibility)"]
+    Meta --> Render["🖼️ Render as SVG<br>(render_diagrams.sh)"]
+    Render --> Index["📚 Add to diagram_index<br>optional)"]
+    Index --> Use["🚀 Use in docs, slides,<br>napps"]
+     Idea:::startEnd
+     Sketch:::coreStep
+     Move:::coreStep
+     Meta:::coreStep
+     Render:::highlight
+     Index:::coreStep
+     Use:::startEnd
+    classDef startEnd fill:#fef9e7,stroke:#f1c40f,color:#7d6608,stroke-width:1px
+    classDef coreStep fill:#e8f4fd,stroke:#1a73e8,color:#0c2d48,stroke-width:1px
+    classDef highlight fill:#d4edda,stroke:#28a745,color:#1b4332,stroke-width:2px
