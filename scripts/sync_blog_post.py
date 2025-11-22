@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+DESCRIPTION: 
 Sync a blog post + diagram assets from the current project
 into a Jekyll site (dagny099.github.io).
 
@@ -14,6 +15,12 @@ Features:
 3. While copying the markdown file, rewrite image paths
    for .svg / .png to point to /assets/diagrams/<filename>,
    and copy those referenced images into assets/diagrams.
+
+SAMPLE USAGE: 
+> ./sync_blog_post.py mermaid-diagram-workflow.md
+or
+> python sync_blog_post.py mermaid-diagram-workflow.md
+
 """
 
 import argparse
@@ -35,7 +42,9 @@ def copy_all_svgs(project_root: Path) -> None:
     """
     JEKYLL_DIAGRAMS_DIR.mkdir(parents=True, exist_ok=True)
 
-    svg_files = list(project_root.rglob("*.svg"))
+    #svg_files = list(project_root.rglob("*.svg"))
+    svg_files = list((project_root / "diagrams").glob("*.svg"))
+
     print(f"Found {len(svg_files)} .svg files under {project_root}")
 
     for svg in svg_files:
@@ -101,8 +110,10 @@ def rewrite_and_copy_images_in_markdown(
         print(f"Copying image: {src_candidate} -> {dest_img}")
         shutil.copy2(src_candidate, dest_img)
 
-        # New path in markdown (you can change to Liquid if you want)
-        new_path = f"/assets/diagrams/{src_candidate.name}"
+        
+        # New path in Liquid 
+        new_path = "{{ '/assets/diagrams/" + src_candidate.name + "' | relative_url }}"
+        #new_path = f"/assets/diagrams/{src_candidate.name}" # New path in markdown
 
         # Reconstruct the markdown image with the updated path
         alt_text_match = re.match(r'!\[([^\]]*)\]\([^)]+\)', match.group(0))
