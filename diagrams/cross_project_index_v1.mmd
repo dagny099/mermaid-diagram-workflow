@@ -1,0 +1,32 @@
+---
+id: cross_project_index_v1
+title: Cross-Project Diagram Index
+project: mermaid_diagram_workflow
+visibility: public
+status: draft
+last_updated: 2026-10-26
+tags: [index, diagrams, architecture]
+sequence:
+  group: mermaid-diagram-workflow-post
+  order: 3
+description: >
+  Each repo keeps its own diagrams/ folder; one index.yaml points at all of them.
+---
+flowchart LR
+    subgraph ProjectA[Repo A]
+        A1[/diagrams/ folder/]
+    end
+
+    subgraph ProjectB[Repo B]
+        B1[/diagrams/ folder/]
+    end
+
+    subgraph ProjectC[Repo C]
+        C1[/diagrams/ folder/]
+    end
+
+    Index[[diagram_index/index.yaml]]
+
+    A1 --> Index
+    B1 --> Index
+    C1 --> Index
