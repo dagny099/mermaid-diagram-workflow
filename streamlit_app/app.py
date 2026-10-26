@@ -381,16 +381,16 @@ def build_frontmatter(
             "order": sequence_order,
         }
 
-    yaml_block = yaml.safe_dump(meta, sort_keys=False).strip()
+    yaml_block = yaml.safe_dump(meta, sort_keys=False, allow_unicode=True).strip()
     return f"---\n{yaml_block}\n---\n"
 
 
 def build_mmd_file(frontmatter: str, skeleton: str) -> str:
-    """Combine frontmatter + Mermaid skeleton."""
-    return (
-        f"{frontmatter}\n"
-        f"```mermaid\n{skeleton.rstrip()}\n```\n"
-    )
+    """Combine frontmatter + Mermaid skeleton.
+
+    A .mmd file is raw Mermaid: no ```mermaid fences, which mmdc would try to parse as diagram code.
+    """
+    return f"{frontmatter}{skeleton.rstrip()}\n"
 
 
 # -------------------------------------------------------------------
