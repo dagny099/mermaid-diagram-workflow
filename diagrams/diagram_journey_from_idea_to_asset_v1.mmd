@@ -1,4 +1,13 @@
 ---
+id: diagram_journey_v1
+title: The Diagram Journey
+project: mermaid_diagram_workflow
+visibility: public
+status: stable
+last_updated: 2026-10-26
+tags: [workflow, lifecycle, mermaid]
+description: >
+  The lifecycle of one diagram, from a scratch idea to a reusable, indexed asset.
 config:
   layout: dagre
 ---
@@ -7,8 +16,8 @@ flowchart LR
     Sketch --> Move["📁 Move into<br>/diagrams/ folder"]
     Move --> Meta["🏷️ Add metadata<br>(id, tags, visibility)"]
     Meta --> Render["🖼️ Render as SVG<br>(render_diagrams.sh)"]
-    Render --> Index["📚 Add to diagram_index<br>optional)"]
-    Index --> Use["🚀 Use in docs, slides,<br>napps"]
+    Render --> Index["📚 Add to diagram_index<br>(optional)"]
+    Index --> Use["🚀 Use in docs, slides,<br>apps"]
      Idea:::startEnd
      Sketch:::coreStep
      Move:::coreStep

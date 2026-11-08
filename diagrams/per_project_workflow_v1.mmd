@@ -1,0 +1,18 @@
+---
+id: per_project_workflow_v1
+title: Per-Project Diagram Workflow
+project: mermaid_diagram_workflow
+visibility: public
+status: stable
+last_updated: 2026-10-26
+tags: [workflow, mermaid, documentation]
+sequence:
+  group: mermaid-diagram-workflow-post
+  order: 2
+description: >
+  The inner loop: edit a .mmd file, render it, use the SVG anywhere.
+---
+flowchart LR
+    Edit[Edit .mmd file<br/>in diagrams/] --> Render[Run render_diagrams.sh]
+    Render --> Svg[(Updated .svg files)]
+    Svg --> Docs[Use diagrams in<br/>docs / slides / apps]
